@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web app</title>
+    
+    <!--TOASTIFY-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!--BOOTSTRAP-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+    <!--MUDULO Y CSS-->
+    <link rel="stylesheet" href="./css/boostrap.css" />
+
+    <script src="main.js" type="module"></script>
+
+  </head>
+  <body id="page-top">
+    <!-- navbar  -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">App Principal</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <img width="10" height="10" class="navbar-toggler-icon" src="https://img.icons8.com/fluency/100/menu--v2.png"/>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+            </li>
+            <li class="nav-item logged-out">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signinModal">Iniciar sesión</a>
+            </li>
+            <li class="nav-item logged-out">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#signupModal">Crear cuenta</a>
+            </li>
+            <li class="nav-item logged-in">
+              <a class="nav-link" href="#" id="logout" >Cerrar sesión</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#acerca">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#servicios">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Modale de login -->
+    <div class="modal fade" id="signinModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!-- Formulario login -->
+            <form id="login-form">
+                  <label for="email">Email:</label>
+                  <input type="email" id="login-email" class="form-control mb-3" placeholder="User" required>
+
+                  <label for="password">Contraseña</label>
+                  <input type="password" id="login-password" class="form-control mb-3" placeholder="Password" required>
+
+                  <button type="submit" class="btn btn-primary w-100 mb-4">Login</button>
+            </form>
+
+            <!-- SECCIÓN BOTONES -->
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <button type="button" class="btn btn-outline-info d-flex align-items-center" id="googleLogin">
+                    <img src="https://img.icons8.com/color/32/google-logo.png" 
+                         alt="Google" 
+                         width="20"
+                         height="20"
+                         class="me-2">
+                    Google
+                </button>
+                
+                <button type="button" class="btn btn-outline-primary d-flex align-items-center" id="facebookLogin">
+                    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" 
+                         alt="Facebook"
+                         width="20"
+                         height="20"
+                         class="me-2">
+                    Facebook
+                </button>
+                
+                <button type="button" class="btn btn-outline-light d-flex align-items-center" id="githubLogin">
+                    <img src="https://img.icons8.com/glyph-neue/32/github.png"
+                         alt="GitHub"
+                         width="20"
+                         height="20"
+                         class="me-2">
+                    GitHub
+                </button>
+                
+                <button type="button" class="btn btn-outline-light d-flex align-items-center" id="appleLogin">
+                    <img src="https://img.icons8.com/deco-color/32/mac-os.png"
+                         alt="Apple"
+                         width="20"
+                         height="20"
+                         class="me-2">
+                    Apple
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- signupModal -->
+    <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Crear cuenta</h1>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            
+            <form id="signup-form">
+                <label for="email">Email:</label>
+                <input type="email" id="signup-email" class="form-control mb-3" placeholder="user" required>
+
+                <label for="password">Contraseña</label>
+                <input type="password" id="signup-password" class="form-control mb-3" placeholder="Password" required>
+
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+              </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header mejorado (combinando tu hero-section con el estilo de la plantilla) -->
+    <header class="bg-primary bg-gradient text-white" style="padding-top: 7rem; padding-bottom: 3rem;">
+      <div class="container px-4 text-center">
+        <h1 class="fw-bolder">Plataforma de Gestión de Proyectos </h1>
+        <p class="lead">Sistema desarrollado para la asignatura de Ingeniería </p>
+        <a class="btn btn-lg btn-light" href="#acerca">¡Comenzar ahora!</a>
+      </div>
+    </header>
+    <!--Contenedor de control-->
+    <div class="container py-4">
+        <h1 class="text-center mb-4"><span class="icono-header"></span>Control de Invernadero</h1>
+        <!-- Sección de Monitoreo -->
+        <div class="card-data">
+            <h2 class="mb-3"><span class="icono-header"></span>Datos de Sensores</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <span class="fs-4 me-2">🌡️</span>
+                        <div>
+                            <strong>Temperatura:</strong><br>
+                            <span id="temperaturaActual">-----</span> °C
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <span  class="fs-4 me-2">💧</span>
+                        <div>
+                            <strong>Humedad:</strong><br>
+                            <span id="humedadActual">-----</span> %
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <span class="fs-4 me-2">⏱️</span>
+                        <div>
+                            <strong>Última Lectura:</strong><br>
+                            <span id="ultimaLectura">-----</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-3 mb-3">
+                    <div class="d-flex align-items-center">
+                        <span class="fs-4 me-2">💦</span>
+                        <div>
+                            <strong>Último Riego:</strong><br>
+                            <span id="ultimoRiego">-----</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección de Configuración -->
+        <div class="card-data">
+            <h2 class="mb-4"><span class="icono-header">⚙️</span>Configuración</h2>
+            <form id="configForm">
+                <div class="config-group">
+                    <h5>💧 Configuración de Riego</h5>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Hora de Riego</label>
+                            <input type="time" 
+                                  class="form-control" 
+                                  id="horaRiego" 
+                                  required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Duración (minutos)</label>
+                            <input type="number" 
+                                  class="form-control" 
+                                  id="tiempoMinuto" 
+                                  min="1" 
+                                  max="60" 
+                                  required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Humedad Activación (%)</label>
+                            <input type="number" 
+                                  class="form-control" 
+                                  id="humedadActivacion" 
+                                  min="0" 
+                                  max="100" 
+                                  required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <h5>🌡️ Control de Temperatura</h5>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Mínima para Foco (°C)</label>
+                            <input type="number" 
+                                  class="form-control" 
+                                  id="minimaFoco" 
+                                  min="10" 
+                                  max="30" 
+                                  step="0.5" 
+                                  required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Máxima para Ventilador (°C)</label>
+                            <input type="number" 
+                                  class="form-control" 
+                                  id="maximaVentilador" 
+                                  min="15" 
+                                  max="40" 
+                                  step="0.5" 
+                                  required>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Guardar Configuración</button>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Sección Acerca de (adaptada de la plantilla) -->
+    <section id="acerca" class="py-5">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>Acerca de esta plataforma</h2>
+            <p class="lead">Esta plataforma fue diseñada para facilitar la gestión de proyectos de manera eficiente. Permite a los equipos organizar sus tareas y seguir el progreso de los proyectos.</p>
+            <ul>
+              <li>Gestión completa de proyectos y tareas</li>
+              <li>Seguimiento de avance y cronogramas</li>
+              <li>Comunicación integrada para equipos</li>
+              <li>Interfaz intuitiva y fácil de usar</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Servicios (adaptada de la plantilla) -->
+    <section class="bg-light py-5" id="servicios">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>Servicios que ofrecemos</h2>
+            <p class="lead">Nuestra plataforma ofrece una amplia gama de servicios para facilitar la gestión de proyectos y mejorar la productividad de los equipos de trabajo.</p>
+            
+            <div class="row mt-4">
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Gestión de Tareas</h5>
+                    <p class="card-text">Organiza y prioriza las tareas de tu equipo de manera eficiente.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Seguimiento</h5>
+                    <p class="card-text">Monitorea el progreso de tus proyectos en tiempo real.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                  <div class="card-body text-center">
+                    <h5 class="card-title">Colaboración</h5>
+                    <p class="card-text">Herramientas para facilitar la comunicación entre los miembros del equipo.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Contacto (adaptada de la plantilla) -->
+    <section id="contacto" class="py-5">
+      <div class="container px-4">
+        <div class="row gx-4 justify-content-center">
+          <div class="col-lg-8">
+            <h2>Contáctanos</h2>
+            <p class="lead">¿Tienes alguna pregunta sobre nuestra plataforma? No dudes en ponerte en contacto con nosotros.</p>
+            
+            <form class="mt-4">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+              </div>
+              <div class="mb-3">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea class="form-control" id="mensaje" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer ajustado -->
+    <footer class="py-5 bg-dark mt-auto">
+        <div class="container px-4">
+            <p class="m-0 text-center text-white">Copyright &copy; Plataforma XYZ 2025</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    
+    
+    <!-- Scripts para el smooth scrolling y cierre automático del navbar en móvil -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Obtener el navbar collapse y el botón del navbar
+        const navbarCollapse = document.getElementById('navbarNav');
+        const bsNavbarCollapse = new bootstrap.Collapse(navbarCollapse, {toggle: false});
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        // Obtener todos los enlaces dentro del navbar
+        const navLinks = document.querySelectorAll('#navbarNav .nav-link');
+        
+        // Agregar evento para cerrar el navbar al hacer clic en un enlace
+        navLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            // Si el navbar está expandido (visible en móvil)
+            if (navbarCollapse.classList.contains('show')) {
+              bsNavbarCollapse.hide();
+            }
+          });
+        });
+        
+        // Smooth scrolling para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === "#") return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              window.scrollTo({
+                top: targetElement.offsetTop - 72,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+  </body>
+</html>
