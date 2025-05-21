@@ -11,8 +11,6 @@ signupForm.addEventListener('submit', async (e) => {
     const email = signupForm['signup-email'].value;
     const password = signupForm['signup-password'].value;
 
-    console.log(email, password);
-    
 
     try {
     const userCredentials = await createUserWithEmailAndPassword(auth, email, password);

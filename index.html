@@ -149,128 +149,196 @@
     </div>
 
     <!-- Header mejorado (combinando tu hero-section con el estilo de la plantilla) -->
-    <header class="bg-primary bg-gradient text-white" style="padding-top: 7rem; padding-bottom: 3rem;">
+    <header class="bg-primary bg-gradient text-white" style="padding-top: 5rem; padding-bottom: 2rem;">
       <div class="container px-4 text-center">
-        <h1 class="fw-bolder">Plataforma de Gestión de Proyectos </h1>
-        <p class="lead">Sistema desarrollado para la asignatura de Ingeniería </p>
-        <a class="btn btn-lg btn-light" href="#acerca">¡Comenzar ahora!</a>
+        <h1 class="fw-bolder">Proyecto 5to Semestre Ing. ELEC</h1>
+        <p class="lead">Desarrollado para la asignatura de Microprocesadores 1</p>
+        <a class="btn btn-lg btn-light" href="#acerca">¡Ver ahora!</a>
       </div>
     </header>
-    <!--Contenedor de control-->
-    <div class="container py-4" id="acerca">
-        <h1 class="text-center mb-4"><span class="icono-header"></span>Control de Invernadero</h1>
-        <!-- Sección de Monitoreo -->
-        <div class="card-data">
-            <h2 class="mb-3"><span class="icono-header"></span>Datos de Sensores</h2>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <div class="d-flex align-items-center">
-                        <span class="fs-4 me-2">🌡️</span>
-                        <div>
-                            <strong>Temperatura:</strong><br>
-                            <span id="temperaturaActual">-----</span> °C
+
+    <!-- Contenedor Principal -->
+<div class="container px-4" >
+    <h1 class="text-center mb-4" style=" padding-top: 2rem;" >Control de Invernadero</h1>
+
+    
+    <p class="mb-4 text-primary" style="font-weight: bold; text-align: center;">Debes tener una cuenta para configurar</p>
+    
+    
+    <!-- Fila Principal con 2 Columnas -->
+    <div class="row g-4" id="acerca" >
+        <!-- Columna Izquierda - Visualización -->
+        <div class="col-md-6">
+            <!-- Tarjeta de Sensores -->
+            <div class="card-data bg-white p-3 rounded-3 shadow-sm mb-4">
+                <h2 class="mb-3 fs-5 text-primary">Datos de Sensores</h2>
+                <div class="row g-3">
+                    <!-- Temperatura -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">🌡️</span>
+                            <div>
+                                <strong>Temperatura:</strong><br>
+                                <span id="temperaturaActual">-----</span> °C
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-3 mb-3">
-                    <div class="d-flex align-items-center">
-                        <span  class="fs-4 me-2">💧</span>
-                        <div>
-                            <strong>Humedad:</strong><br>
-                            <span id="humedadActual">-----</span> %
+                    
+                    <!-- Humedad -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">💧</span>
+                            <div>
+                                <strong>Humedad:</strong><br>
+                                <span id="humedadActual">-----</span> %
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-3 mb-3">
-                    <div class="d-flex align-items-center">
-                        <span class="fs-4 me-2">⏱️</span>
-                        <div>
-                            <strong>Última Lectura:</strong><br>
-                            <span id="ultimaLectura">-----</span>
+                    
+                    <!-- Nivel de Agua -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">⏱️</span>
+                            <div>
+                                <strong>Nivel de agua:</strong><br>
+                                <span id="ultimaLectura">-----</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="col-md-3 mb-3">
-                    <div class="d-flex align-items-center">
-                        <span class="fs-4 me-2">💦</span>
-                        <div>
-                            <strong>Último Riego:</strong><br>
-                            <span id="ultimoRiego">-----</span>
+                    
+                    <!-- Último Riego -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">💦</span>
+                            <div>
+                                <strong>Último Riego:</strong><br>
+                                <span id="ultimoRiego">-----</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Tarjeta de Configuración Actual -->
+            <div class="card-data bg-white p-3 rounded-3 shadow-sm">
+                <h2 class="mb-3 fs-5 text-primary">Configuración Actual</h2>
+                <div class="row g-3">
+                    <!-- Hora Programada -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">⏰</span>
+                            <div>
+                                <strong>Hora Programada:</strong><br>
+                                <span id="hora_programada">-----</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Duración Riego -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">⏳</span>
+                            <div>
+                                <strong>Duración Riego:</strong><br>
+                                <span id="duracion_minutos">-----</span> min
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Umbral Humedad -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">💦</span>
+                            <div>
+                                <strong>Umbral Humedad:</strong><br>
+                                <span id="humedad_umbral">-----</span> %
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Temp. Mín Luz -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">💡</span>
+                            <div>
+                                <strong>Temp. Mín Luz:</strong><br>
+                                <span id="minima_luz">-----</span> °C
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Temp. Máx Vent. -->
+                    <div class="col-6 col-md-6">
+                        <div class="d-flex align-items-center bg-light p-2 rounded">
+                            <span class="fs-4 me-2">🌀</span>
+                            <div>
+                                <strong>Temp. Máx Vent.:</strong><br>
+                                <span id="maxima_ventilador">-----</span> °C
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+
+                      
+            </div>
+
+            
         </div>
 
-        <!-- Sección de Configuración -->
-        <div class="card-data">
-            <h2 class="mb-4"><span class="icono-header">⚙️</span>Configuración</h2>
-            <form id="configForm">
-                <div class="config-group">
-                    <h5>💧 Configuración de Riego</h5>
+
+        <!-- Columna Derecha - Configuración -->
+        <div class="col-md-6" id="bloqueConfiguracion">
+            <div class="card-config bg-blue-50 p-3 rounded-3 shadow-sm" style="background-color: #b1e9ff; border: 1px solid #86c7ff;">
+                <h2 class="mb-4 fs-5 text-primary"  >Configurar Parámetros</h2>
+                
+                                <!-- Configuración de Riego -->
+                <div class="config-group mb-4">
+                    <h5 class="mb-3">💧 Configuración de Riego</h5>
                     <div class="row g-3">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="form-label">Hora de Riego</label>
-                            <input type="time" 
-                                  class="form-control" 
-                                  id="horaRiego" 
-                                  required>
+                            <input type="time" class="form-control" id="horaRiego" >
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <label class="form-label">Duración (minutos)</label>
-                            <input type="number" 
-                                  class="form-control" 
-                                  id="tiempoMinuto" 
-                                  min="1" 
-                                  max="60" 
-                                  required>
+                            <input type="number" class="form-control" id="tiempoMinuto" 
+                                  min="1" max="59" step="1">
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-12">
                             <label class="form-label">Humedad Activación (%)</label>
-                            <input type="number" 
-                                  class="form-control" 
-                                  id="humedadActivacion" 
-                                  min="0" 
-                                  max="100" 
-                                  required>
+                            <input type="number" class="form-control" id="humedadActivacion" 
+                                  min="0" max="100" step="1">
                         </div>
                     </div>
                 </div>
 
+                <!-- Control de Temperatura -->
                 <div class="config-group">
-                    <h5>🌡️ Control de Temperatura</h5>
+                    <h5 class="mb-3">🌡️ Control de Temperatura</h5>
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label">Mínima para Foco (°C)</label>
-                            <input type="number" 
-                                  class="form-control" 
-                                  id="minimaFoco" 
-                                  min="10" 
-                                  max="30" 
-                                  step="0.5" 
-                                  required>
+                            <input type="number" class="form-control" id="minimaFoco" 
+                                  min="0" max="40" step="1">
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">Máxima para Ventilador (°C)</label>
-                            <input type="number" 
-                                  class="form-control" 
-                                  id="maximaVentilador" 
-                                  min="15" 
-                                  max="40" 
-                                  step="0.5" 
-                                  required>
+                            <input type="number" class="form-control" id="maximaVentilador" 
+                                  min="10" max="50" step="1">
                         </div>
                     </div>
                 </div>
+                <!-- Botón de Guardar -->
+                <button type="submit" class="btn btn-primary w-100 mt-4 py-2 fw-bold shadow" id="btguardar">
+                    Guardar Configuración
+                </button>
 
-                <button type="submit" class="btn btn-primary w-100">Guardar Configuración</button>
-            </form>
+            </div>
         </div>
     </div>
-
+</div>
 
     <!-- Sección Acerca de (adaptada de la plantilla) -->
     <section id="acerca1" class="py-5">
@@ -408,6 +476,7 @@
         });
       });
     </script>
+    
 
   </body>
 </html>

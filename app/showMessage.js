@@ -20,17 +20,17 @@ export function showMessage(message, type = "success") {
     Toastify({
         text: message,
         duration: 2000,
-        close: true,
+        close: false,
         gravity: "bottom",
         position: "right",
         stopOnFocus: true,
         style: {
-            background: type === "success" ? "#25ff00" : "#FF0000", // Verde fosforescente o Rojo
+            background: type === "success" 
+                ? "#007bff"              // azul moderno (como tu encabezado)
+                : "#2c2c2c",             // gris oscuro en lugar de negro puro
             color: "#ffffff", 
             borderRadius: "10px",
-            boxShadow: type === "success" 
-                ? "0 4px 12px rgba(88, 190, 139, 0.32)" 
-                : "0 4px 12px rgba(246, 98, 98, 0.32)", // Sombra verde o roja
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
             padding: "12px 20px",
             fontSize: "16px",
             fontWeight: "500",
@@ -38,4 +38,3 @@ export function showMessage(message, type = "success") {
         }
     }).showToast();
 }
-
